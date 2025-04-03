@@ -1,0 +1,28 @@
+SMODS.Joker {
+
+    key='[joker_identifyer_here]',
+    loc_txt = {
+                name = "[joker_name_here]",
+                text = {"Joker","Description", "Here"}
+                unlock = {
+                "unlock_action_here", "{C:attention}specific condition, ex:specific deck, unlock, etc.{}"
+                }
+            },
+
+    config = {extra = {scaling_variables_here ex:Mult, Xmult, Chips}},
+    yes_pool_flag = 'pool_flag_here', <-- used for configs
+        rarity = ?,
+        blueprint_compat = ?,
+        eternal_compat = ?,
+        perishable_compat = ?,
+        atlas = 'PlaceHolder',
+        pos = {x = 0, y = 0},
+        cost = ?,
+        allow_duplicates = ?,  
+        unlocked = ?,
+        unlock_condition = {type = '?', ? = ?},     
+        
+        set_badges = function(self, card, badges)
+            badges[#badges+1] = create_badge('extra_badge_text_here', G.C.RED, G.C.WHITE, 1.2 )
+        end,
+}
