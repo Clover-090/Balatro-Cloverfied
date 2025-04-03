@@ -2,6 +2,6 @@
 
 A mod made by me and my friends, adding new jokers based around in-jokes and games we like.
 
-New deckskins coming soon an a seperate mod.
+Deckskins and other cosmetic changes in the "Freinds of clover" expansion linked here! [add Link later]
 
 Requires Steammodded and its dependancies to run.
