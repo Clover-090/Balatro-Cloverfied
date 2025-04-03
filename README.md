@@ -1,4 +1,5 @@
-# Balatro-Cloverfriend
-A mod for me and my friends with stupid injokes 'n stuff
+# Balatro: Clover-fied
 
-Requires the latest versions of lovely and steammodded
+A mod made by me and my friends, adding new jokers based around in-jokes and games we like.
+
+New deckskins coming soon an a seperate mod.
