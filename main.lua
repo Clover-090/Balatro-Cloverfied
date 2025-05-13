@@ -491,7 +491,7 @@ SMODS.Joker {
     key = 'Mattleg',
     
     loc_txt = {
-                name = 'G. Historio',
+                name = 'G. Histrio',
                 text = {"Generates a {C:attention}secret hand{} every round", "If you play any cards from the secret hand",
                 " Gain {C:attention} 5 Dollars {}",},
                 unlock = {
