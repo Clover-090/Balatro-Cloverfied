@@ -53,7 +53,7 @@ function Game:start_run(args)
         G.GAME.pool_flags.maurokers_appear = true
     else
         G.GAME.pool_flags.maurokers_appear = false
-    end 
+    end
 end  
 
 SMODS.current_mod.config_tab = function()
@@ -141,7 +141,15 @@ SMODS.Atlas {
     key = "antimatter",
     path = "AntimaterJ.png",
     px = 71,
-    py =95
+    py = 95
+}
+
+SMODS.Atlas {
+    key = "historio",
+    path = "G_histrio.png",
+    px = 71,
+    py = 95
+
 }
 
 
@@ -210,7 +218,7 @@ SMODS.Joker {
                 end
             end
 
-} 
+}
 
 SMODS.Joker {
     key = 'Hypothetical',
@@ -251,9 +259,6 @@ SMODS.Joker {
                     G.consumeables:emplace(card)
                     return true
 				    end
-                    
-          
-        
 }))
 end
 end
@@ -385,7 +390,7 @@ SMODS.Joker {
                     mult_mod = card.ability.extra.mult,
                     message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } }
                 }
-            end 
+            end
         end
 }
 
@@ -479,6 +484,62 @@ SMODS.Joker{
             end
         end
 
+}
+
+SMODS.Joker {
+
+    key = 'Mattleg',
+    
+    loc_txt = {
+                name = 'G. Historio',
+                text = {"Generates a {C:attention}secret hand{} every round", "If you play any cards from the secret hand",
+                " Gain {C:attention} 5 Dollars {}",},
+                unlock = {
+                'Win any stake on', '{C:attention}Checkered Deck{}'
+                }
+            },
+
+        config = {extra = { money = 10, r1 = 1, r2 =2, r3 =3, r4 = 4, r5 = 5 }},
+        yes_pool_flag = 'enableMoker',
+        rarity = 4,
+        blueprint_compat = true,
+        eternal_compat = true,
+        perishable_compat = true,
+        atlas = 'historio',
+        pos = {x = 0, y = 0},
+        soul_pos = {x = 1, y = 0},
+        cost = 20,
+        allow_duplicates = false,
+        unlocked = false,
+        unlock_condition = {type = 'win_deck', deck = 'b_checkered'},
+        
+        set_badges = function(self, card, badges)
+            badges[#badges+1] = create_badge('Moker', G.C.RED, G.C.WHITE, 1.2 )
+        end,
+
+        loc_vars = function(self, info_queue, card)
+            return { vars = { card.ability.extra.money } }
+        end,
+
+        calculate = function(self, card, context)
+                    
+                    if context.ending_shop then
+
+                        r1 = math.random(1, 14)
+                        r2 = math.random(1, 14)
+                        r3 = math.random(1, 14)
+                        r4 = math.random(1, 14)
+                        r5 = math.random(1, 14)
+
+                        print('This one is for all the debug plus heads out there! ' ..r1.. ' ' ..r2.. ' ' ..r3.. ' ' ..r4.. ' ' ..r5 )
+                    end
+
+                    if context.individual and context.cardarea == G.play then
+                        if context.other_card:get_id() == r1 or context.other_card:get_id() == r2 or context.other_card:get_id() == r3 or context.other_card:get_id() == r4 or context.other_card:get_id() == r5 then
+                            ease_dollars(card.ability.extra.money)
+                            end
+                        end
+                end
 }
 
 --[[  I can't figure out how to get loop cards to only appear once the joker is bought, for now this joker is not active
