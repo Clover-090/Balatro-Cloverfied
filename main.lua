@@ -542,19 +542,19 @@ SMODS.Joker {
                 end
 }
 
---[[  I can't figure out how to get loop cards to only appear once the joker is bought, for now this joker is not active
 SMODS.Joker { 
 
     key='sifleg',
     loc_txt = {
                 name = "Perdu Un",
-                text = {"Retriggers played hand {C:attention}1{} time", "Increase retrigger count by using {C:attention}Loop Cards{}", "{C:inactive}(Currently{} {C:mult}+#1#{} {C:inactive} Mult){}", "{C:inactive}Its time to{} {C:mult}Start Again{}"},
+                text = {"For each time a card is retriggered", "add {X:mult,C:white}0.01X{} Mult", 
+                "{C:inactive}Currently {X:mult,C:white}X#1# {C:inactive} Mult"},
                 unlock = {
                 "Win a game on the", "{C:attention}Nebula Deck{}"
                 }
             },
 
-    config = {extra = {repetitions = 0}},
+    config = {extra = {Xmult = 1, Xmult_gain = 0.01}},
         rarity = 4,
         blueprint_compat = true,
         eternal_compat = true,
@@ -570,40 +570,26 @@ SMODS.Joker {
         set_badges = function(self, card, badges)
             badges[#badges+1] = create_badge('In Stars And Time', G.C.WHITE, G.C.BLACK, 1.2 )
         end,
+
         loc_vars = function(self, info_queue, card)
-            return { vars = { card.ability.extra.repetitions} }
+            return { vars = { card.ability.extra.Xmult, card.ability.extra.Xmult_gain } }
         end,
-        add_to_deck = function(self, card)
-            G.GAME.pool_flags.loop_cards_appear = true
-        end,
+    
+        
         calculate = function(self, card, context)
-            if context.cardarea == G.play and context.repetition and not context.repetition_only then
-                return {
-					message = 'Again!',
-					repetitions = card.ability.extra.repetitions,
-					card = context.other_card
-				}
-			end
-        end
-} ]]--
-
---[[
-SMODS.Consumable {
-    key = 'loopcard',
-    set = 'Spectral',
-    loc_txt = {
-        name = "Loop",
-        text = {"Start Again Start Again", "Start Again Start Again", "Start Again Start Again", "Start Again Start Again"}
-    },
-    config = {softlock = true},
-    hidden = true,
-    soul_rate = 3,
-    can_repeat_soul = true, -- will be changed later
-    atlas = 'PlaceHolder',
-    set_badges = function(self, card, badges)
-        badges[#badges+1] = create_badge('In Stars And Time', G.C.WHITE, G.C.BLACK, 1.2 )
-    end,
-
-
-
-}]]--
+            if context.joker_main then
+            return {
+                Xmult_mod = card.ability.extra.Xmult,
+                message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } }
+            }
+            end 
+            if context.repetition == true then
+                card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_gain
+                                return {
+                                    message = 'Upgraded!',
+                                    colour = G.C.Xmult,
+                                    card = card
+                                    }
+                                end
+                            end
+} 
