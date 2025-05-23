@@ -547,14 +547,14 @@ SMODS.Joker {
     key='sifleg',
     loc_txt = {
                 name = "Perdu Un",
-                text = {"For each time a card is retriggered", "add {X:mult,C:white}0.01X{} Mult", 
+                text = {"For each card that is {C:attention}retriggered{}", "add {X:mult,C:white}0.1X{} Mult", 
                 "{C:inactive}Currently {X:mult,C:white}X#1# {C:inactive} Mult"},
                 unlock = {
                 "Win a game on the", "{C:attention}Nebula Deck{}"
                 }
             },
 
-    config = {extra = {Xmult = 1, Xmult_gain = 0.01}},
+    config = {extra = {Xmult = 1, Xmult_gain = 0.1}},
         rarity = 4,
         blueprint_compat = true,
         eternal_compat = true,
@@ -583,12 +583,12 @@ SMODS.Joker {
                 message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } }
             }
             end 
-            if context.repetition == true then
+            if context.repetition then
                 card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_gain
                                 return {
                                     message = 'Upgraded!',
                                     colour = G.C.Xmult,
-                                    card = card
+                                    card = self
                                     }
                                 end
                             end
