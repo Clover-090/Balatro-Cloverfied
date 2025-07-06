@@ -102,12 +102,6 @@ SMODS.Atlas {
     py = 95
 }
 
-SMODS.Atlas {
-    key = "hypothetical",
-    path = "hypothetical.png",
-    px = 71,
-    py = 95
-}
 
 SMODS.Atlas {
     key = "BIGBILL",
@@ -238,7 +232,7 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    atlas = 'hypothetical',
+    atlas = 'PlaceHolder',
     pos = { x = 0, y = 0 }, 
     cost = 3,
     unlocked = false,
