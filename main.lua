@@ -492,7 +492,7 @@ SMODS.Joker {
     
     loc_txt = {
                 name = 'G. Histrio',
-                text = {"Generates a {C:attention}secret hand{} every round", "If you play any cards from the secret hand",
+                text = {"Draws a {C:attention}secret hand{} every round", "If you play any cards from the secret hand",
                 " Gain{C:attention} $5{}",},
                 unlock = {
                 'Win any stake on', '{C:attention}Checkered Deck{}'
@@ -568,7 +568,7 @@ SMODS.Joker {
         unlock_condition = {type = 'win_deck', deck = 'b_nebula'},     
         
         set_badges = function(self, card, badges)
-            badges[#badges+1] = create_badge('In Stars And Time', G.C.WHITE, G.C.BLACK, 1.2 )
+            badges[#badges+1] = create_badge('In Stars and Time', G.C.WHITE, G.C.BLACK, 1.2 )
         end,
 
         loc_vars = function(self, info_queue, card)
@@ -592,4 +592,51 @@ SMODS.Joker {
                                     }
                                 end
                             end
-} 
+}
+
+
+SMODS.Joker {
+
+    key='foolhand',
+    loc_txt = {
+                name = "Fool's Hand",
+                text = {"For each owned{C:attention}Joker{} joker", "Or owned copy of {C:attention}Fool's Hand{}", "Give {X:mult,C:white}1.5X{} Mult"},
+                unlock = {
+                    "Win a game on the", "{C:attention}Ghost Deck{}"
+                    }
+            },
+
+        config = {extra = {Xmult = 1.5}},
+        rarity = 1,
+        blueprint_compat = true,
+        eternal_compat = true,
+        perishable_compat = true,
+        atlas = 'PlaceHolder',
+        pos = {x = 0, y = 0},
+        cost = 7,
+        allow_duplicates = false,
+        unlocked = false,
+        unlock_condition = {type = 'win_deck', deck = 'b_ghost'},
+        
+        set_badges = function(self, card, badges)
+            badges[#badges+1] = create_badge('Clokers',  G.C.GREEN, G.C.PURPLE, 1.2 )
+        end,
+
+        loc_vars = function(self, info_queue, card)
+            return { vars = { card.ability.extra.Xmult } }
+        end,
+
+        calculate = function(self, card, context)
+ 
+            if context.other_joker and not card.debuff and not context.blueprint then
+                if (context.other_joker.ability.name == 'Joker') then
+                    return {
+                        Xmult_mod = card.ability.extra.Xmult,
+                        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } }
+                    }
+
+            end
+        end
+    end
+
+    }
