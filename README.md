@@ -4,4 +4,4 @@ A mod made by me and my friends, adding new jokers that are mostly based around 
 
 Deckskins and other cosmetic changes in the [Freinds of clover expansion!](https://github.com/Clover-090/Clover-fied-Friends-of-Clover-expansion).
 
-Requires Steammodded and its dependencies to run.
+Requires Steammodded and its dependancies to run.
