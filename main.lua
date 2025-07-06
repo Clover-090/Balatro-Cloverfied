@@ -600,7 +600,7 @@ SMODS.Joker {
     key='foolhand',
     loc_txt = {
                 name = "Fool's Hand",
-                text = {"For each owned{C:attention}Joker{} joker", "Or owned copy of {C:attention}Fool's Hand{}", "Give {X:mult,C:white}1.5X{} Mult"},
+                text = {"For each owned {C:attention}Joker{}joker", "Or owned copy of {C:attention}Fool's Hand{}", "Give {X:mult,C:white}1.5X{} Mult"},
                 unlock = {
                     "Win a game on the", "{C:attention}Ghost Deck{}"
                     }
