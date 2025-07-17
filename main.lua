@@ -1,6 +1,7 @@
 --config menu start
 
 local clov_config = SMODS.current_mod.config
+
 -- Code Borrowed From Cardsauce mod
 clov_enabled = copy_table(clov_config)
 
