@@ -69,6 +69,7 @@ SMODS.Joker {
             },
 
     config = {extra = {Xmult = 1, Xmult_gain = 0.1}},
+    yes_pool_flag = 'cameo_appear',
         rarity = 4,
         blueprint_compat = true,
         eternal_compat = true,
