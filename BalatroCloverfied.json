@@ -3,7 +3,7 @@
 	"name": "Balatro: Clover-fied",
 	"display_name": "Clover-fied",
 	"author": ["Clover, Qrst"],
-	"description": "A mod that mainly adds jokers that refrence inside joker and embarassing things to mess with my friends, also adds jokers refrencing games",
+	"description": "A mod that mainly adds jokers that refrence inside jokes and embarassing things to mess with my friends, also adds jokers refrencing games",
 	"prefix": "clov",
 	"main_file": "main.lua",
 	"priority": 0,

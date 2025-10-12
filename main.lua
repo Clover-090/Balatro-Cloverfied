@@ -109,7 +109,7 @@ SMODS.current_mod.config_tab = function()
         key='nothingfool',
         loc_txt = {
                     name = "The Fool of Nothing",
-                    text = {"TBD"},
+                    text = {"Gain $3 for each unscored King Card played"},
                     unlock = {
                         "Win a game on the", "{C:attention}Forgotten Deck{}"
                         }
@@ -126,7 +126,7 @@ SMODS.current_mod.config_tab = function()
             allow_duplicates = false,
             unlocked = false,
             unlock_condition = {type = 'win_deck', deck = 'b_forgotten'},
-            
+
             set_badges = function(self, card, badges)
                 badges[#badges+1] = create_badge('9Kings', G.C.BLUE, G.C.GREEN, 1.2 )
             end,
