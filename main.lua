@@ -102,7 +102,7 @@ SMODS.current_mod.config_tab = function()
     SMODS.load_file("assets/Jokers/rare.lua")()
     SMODS.load_file("assets/Jokers/legendary.lua")()
 
-    --TODO Move these to respective files based on rarity of joker
+    --TODO Move these to respective files sorted based on rarity of joker
 
     SMODS.Joker {
 
@@ -114,7 +114,7 @@ SMODS.current_mod.config_tab = function()
                         "Win a game on the", "{C:attention}Forgotten Deck{}"
                         }
                 },
-    
+                
             config = {extra = {Xmult = 1.5}},
             rarity = 1,
             blueprint_compat = true,
@@ -123,7 +123,7 @@ SMODS.current_mod.config_tab = function()
             atlas = 'nothingfool',
             pos = {x = 0, y = 0},
             cost = 3,
-            allow_duplicates = false,  
+            allow_duplicates = false,
             unlocked = false,
             unlock_condition = {type = 'win_deck', deck = 'b_forgotten'},
             
