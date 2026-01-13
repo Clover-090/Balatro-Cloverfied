@@ -1,10 +1,10 @@
 SMODS.Joker {
     key = 'lodog',
     loc_txt = {
-        name = 'Unfortunatly Placed Dog',
+        name = 'Unfortunately Placed Dog',
         text = {
           "Gains {C:mult}+10 Mult",
-          "For each face card within",
+          "for each face card within",
           "a {C:attention}Two Pair{}",
           "{C:inactive}(Currently {C:mult}+#1# {C:inactive} Mult)",
           "{C:inactive} Get them some Spare Trousers!"

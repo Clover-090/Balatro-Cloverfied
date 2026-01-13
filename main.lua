@@ -55,6 +55,12 @@ function Game:start_run(args)
     else
         G.GAME.pool_flags.maurokers_appear = false
     end
+
+    if clov_enabled['enableFleaoker'] then
+        G.GAME.pool_flags.fleaokers_appear = true
+    else
+        G.GAME.pool_flags.fleaokers_appear = false
+    end
 end  
 
 SMODS.current_mod.config_tab = function()
@@ -63,7 +69,8 @@ SMODS.current_mod.config_tab = function()
 		'enableLoker',
 		'enableCameo',
         'enableCoker',
-        'enableMauroker'
+        'enableMauroker',
+        'enableFleaoker'
 
 	}
 	local left_settings = { n = G.UIT.C, config = { align = "tm", padding = 0.05 }, nodes = {} }
