@@ -49,3 +49,11 @@ SMODS.Atlas {
 
 }
 
+
+SMODS.Atlas {
+    key = "nothingfool",
+    path = "FOOLOFNOTHINGTEMP.png",
+    px = 71,
+    py = 95
+
+}

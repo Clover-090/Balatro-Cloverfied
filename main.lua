@@ -55,6 +55,12 @@ function Game:start_run(args)
     else
         G.GAME.pool_flags.maurokers_appear = false
     end
+
+    if clov_enabled['enableFleaoker'] then
+        G.GAME.pool_flags.fleaokers_appear = true
+    else
+        G.GAME.pool_flags.fleaokers_appear = false
+    end
 end  
 
 SMODS.current_mod.config_tab = function()
@@ -63,7 +69,8 @@ SMODS.current_mod.config_tab = function()
 		'enableLoker',
 		'enableCameo',
         'enableCoker',
-        'enableMauroker'
+        'enableMauroker',
+        'enableFleaoker'
 
 	}
 	local left_settings = { n = G.UIT.C, config = { align = "tm", padding = 0.05 }, nodes = {} }
@@ -101,3 +108,33 @@ SMODS.current_mod.config_tab = function()
     SMODS.load_file("assets/Jokers/uncommon.lua")()
     SMODS.load_file("assets/Jokers/rare.lua")()
     SMODS.load_file("assets/Jokers/legendary.lua")()
+
+    --TODO Move these to respective files sorted based on rarity of joker
+
+    SMODS.Joker {
+
+        key='nothingfool',
+        loc_txt = {
+                    name = "The Fool of Nothing",
+                    text = {"Gain $3 for each unscored King Card played"},
+                    unlock = {
+                        "Win a game on the", "{C:attention}Forgotten Deck{}"
+                        }
+                },
+                
+            config = {extra = {Xmult = 1.5}},
+            rarity = 1,
+            blueprint_compat = true,
+            eternal_compat = true,
+            perishable_compat = true,
+            atlas = 'nothingfool',
+            pos = {x = 0, y = 0},
+            cost = 3,
+            allow_duplicates = false,
+            unlocked = false,
+            unlock_condition = {type = 'win_deck', deck = 'b_forgotten'},
+
+            set_badges = function(self, card, badges)
+                badges[#badges+1] = create_badge('9Kings', G.C.BLUE, G.C.GREEN, 1.2 )
+            end,
+    }

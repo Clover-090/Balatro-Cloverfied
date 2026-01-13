@@ -90,7 +90,7 @@ SMODS.Joker{
         atlas = 'PlaceHolder',
         pos = {x = 0, y = 0},
         cost = 5,
-        allow_duplicates = false,  
+        allow_duplicates = false,
         unlocked = false,
         unlock_condition = {type = 'win_deck', deck = 'b_yellow'}, 
 
@@ -131,6 +131,7 @@ SMODS.Joker {
             },
 
         config = {extra = {Xmult = 1.5}},
+        yes_pool_flag = 'enableCoker',
         rarity = 1,
         blueprint_compat = true,
         eternal_compat = true,
@@ -164,3 +165,4 @@ SMODS.Joker {
     end
 
     }
+

@@ -3,5 +3,6 @@ return{
     ['enableLoker'] = true,
     ['enableMauroker'] = true,
     ['enableCameo'] = true,
-    ['enableCoker'] = true
+    ['enableCoker'] = true,
+    ['enableFleaoker'] = true
 }
